@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pa4.Controller">
+   <children>
+      <SplitPane dividerPositions="0.3867791842475387" orientation="VERTICAL" prefHeight="286.0" prefWidth="680.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="130.0" prefWidth="678.0">
+               <children>
+                  <Button fx:id="cancelButton" layoutX="580.0" layoutY="50.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Cancel" visible="false" />
+                  <ProgressBar fx:id="progressBar" layoutX="21.0" layoutY="53.0" prefHeight="20.0" prefWidth="425.0" progress="0.0" visible="false" />
+                  <Label fx:id="fileNameLabel" layoutX="186.0" layoutY="14.0" prefHeight="18.0" prefWidth="262.0" />
+                  <Button fx:id="pauseButton" layoutX="471.0" layoutY="50.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Pause" visible="false" />
+                  <Button fx:id="resumeButton" layoutX="471.0" layoutY="50.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Resume" visible="false" />
+                  <Label fx:id="fileSize" layoutX="520.0" layoutY="23.0" prefHeight="18.0" prefWidth="136.0" />
+                  <ProgressBar fx:id="threadWalker01" layoutX="63.0" layoutY="93.0" prefHeight="18.0" prefWidth="150.0" progress="0.0" visible="false" />
+                  <ProgressBar fx:id="threadWalker02" layoutX="463.0" layoutY="131.0" prefHeight="18.0" prefWidth="150.0" progress="0.0" visible="false" />
+                  <ProgressBar fx:id="threadWalker03" layoutX="264.0" layoutY="131.0" prefHeight="18.0" prefWidth="150.0" progress="0.0" visible="false" />
+                  <ProgressBar fx:id="threadWalker04" layoutX="463.0" layoutY="93.0" prefHeight="18.0" prefWidth="150.0" progress="0.0" visible="false" />
+                  <ProgressBar fx:id="threadWalker05" layoutX="264.0" layoutY="93.0" prefHeight="18.0" prefWidth="150.0" progress="0.0" visible="false" />
+                  <ProgressBar fx:id="threadWalker06" layoutX="63.0" layoutY="131.0" prefHeight="18.0" prefWidth="150.0" progress="0.0" visible="false" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <Label fx:id="urltdLabel" layoutX="14.0" layoutY="50.0" prefHeight="20.0" prefWidth="114.0" text="URL to Download">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="urlInputField" layoutX="128.0" layoutY="47.0" prefHeight="26.0" prefWidth="322.0" />
+      <Button fx:id="downloadButton" layoutX="467.0" layoutY="47.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Download" />
+      <Button fx:id="clearButton" layoutX="569.0" layoutY="48.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Clear" />
+      <Label fx:id="threadLabel" layoutX="14.0" layoutY="131.0" prefHeight="18.0" prefWidth="48.0" text="Threads:" visible="false" />
+   </children>
+</AnchorPane>
