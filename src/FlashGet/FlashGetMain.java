@@ -1,4 +1,4 @@
-package pa4;
+package FlashGet;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 * Main class of Multi-thread Downloader
 * @author Jakkrathorn Srisawad
 * */
-public class Main extends Application {
+public class FlashGetMain extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("flashget-UI.fxml"));

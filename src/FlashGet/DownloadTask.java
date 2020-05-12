@@ -1,4 +1,4 @@
-package pa4;
+package FlashGet;
 
 import javafx.concurrent.Task;
 
@@ -27,7 +27,7 @@ public class DownloadTask extends Task<Long> {
     @Override
     public Long call() {
         long bytesRead = 0;
-        InputStream in =null;
+        InputStream in = null;
         RandomAccessFile writer = null;
         try {
             long length = 0;
@@ -35,14 +35,13 @@ public class DownloadTask extends Task<Long> {
             byte[] buffer = new byte[BUFFERSIZE];
             String range = null;
             URLConnection connection = url.openConnection();
-            if(size > 0){
-                range = String.format("bytes=%d-%d",start,start+size-1);
-            }
-            else {
+            if (size > 0) {
+                range = String.format("bytes=%d-%d", start, start + size - 1);
+            } else {
                 //size not given, so read from start byte to end of line
-                range = String.format("bytes=%d-",start);
+                range = String.format("bytes=%d-", start);
             }
-            connection.setRequestProperty("Range",range);
+            connection.setRequestProperty("Range", range);
             in = connection.getInputStream();
             //Create a random access file for synchronus output ("rwd" flags)
             writer = new RandomAccessFile(outFile, "rwd");
@@ -55,22 +54,23 @@ public class DownloadTask extends Task<Long> {
                 bytesRead += n;
                 updateProgress(bytesRead, length);
                 updateValue(bytesRead);
-                if(isCancelled()) {
-                    updateProgress(0,0);
-                    break;}
+                if (isCancelled()) {
+                    updateProgress(0, 0);
+                    break;
+                }
                 if (n < 0) break;
-            } while (bytesRead<size);
+            } while (bytesRead < size);
         } catch (MalformedURLException ex) {
             //URL constructor may throw this
             System.exit(1);
         } catch (IOException ioe) {
             //getContentLengthLong may throw IOException
             System.exit(1);
-        }finally {
-            try{
-            in.close();
-            writer.close();
-        }catch (IOException ioe){
+        } finally {
+            try {
+                in.close();
+                writer.close();
+            } catch (IOException ioe) {
 
             }
         }

@@ -1,12 +1,15 @@
-package pa4;
+package FlashGet;
 
 import javafx.beans.Observable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 
 import java.io.File;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.concurrent.Executors;
 
 /*
@@ -56,8 +59,8 @@ public class MultiDownloadTask extends Controller {
     }
 
     /*
-    * Get Label from controller
-    * */
+     * Get Label from controller
+     * */
     public void labelGetter(Label getLabel) {
         label = getLabel;
     }
@@ -67,6 +70,7 @@ public class MultiDownloadTask extends Controller {
      *
      * */
     public void getBytes(Observable observable, Long oldValue, long newValue) {
+        long upValue;
         if (oldValue == null) {
             upValue = newValue;
             updateText += upValue;
@@ -76,8 +80,16 @@ public class MultiDownloadTask extends Controller {
         }
         if (updateText == getLength) {
             label.setText("STATUS : FINISHED");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Done");
+            alert.setHeaderText("Download Finished");
+            alert.setContentText("your download is finished!!!!");
+            alert.showAndWait();
         } else {
-            label.setText(String.format("%d / %d", updateText, getLength));
+            if (getLength < 10e3) label.setText(String.format("%.2f Bytes / %.2f Bytes", updateText, getLength));
+            else if (getLength <= 10e3) label.setText(String.format("%.2f KB / %.2f KB", updateText/10e3, getLength/10e3));
+            else if (getLength <= 10e6)label.setText(String.format("%.2f MB / %.2f MB", updateText/10e6, getLength / 10e6));
+            else label.setText(String.format("%.2f GB / %.2f GB", updateText/10e9, getLength / 10e9));
         }
     }
 
@@ -85,14 +97,23 @@ public class MultiDownloadTask extends Controller {
      * For cancel all tasks
      * */
     public void cancelTasks() {
-        for (DownloadTask task : tasks) {
-            task.cancel();
+        Boolean clear = false;
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setContentText("Confirm");
+        alert.setTitle("Cancel");
+        alert.setHeaderText("Do you want to cancel???");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) clear = true;
+        if (clear = true) {
+            label.setText("STATUS : CANCELLED");
+            for (DownloadTask task : tasks) {
+                task.cancel();
+            }
         }
-        label.setText("STATUS : CANCELLED");
     }
 
-    public void clearTask(){
-        Arrays.fill(tasks,null);
+    public void clearTask() {
+        Arrays.fill(tasks, null);
         label.setText("STATUS : CLEAR ");
     }
 

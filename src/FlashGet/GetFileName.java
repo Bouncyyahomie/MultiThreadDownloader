@@ -1,4 +1,4 @@
-package pa4;
+package FlashGet;
 
 /*
 * For get File name from url
