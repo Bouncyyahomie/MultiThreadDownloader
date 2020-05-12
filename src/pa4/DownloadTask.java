@@ -55,6 +55,9 @@ public class DownloadTask extends Task<Long> {
                 bytesRead += n;
                 updateProgress(bytesRead, length);
                 updateValue(bytesRead);
+                if(isCancelled()) {
+                    updateProgress(0,0);
+                    break;}
                 if (n < 0) break;
             } while (bytesRead<size);
         } catch (MalformedURLException ex) {

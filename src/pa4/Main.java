@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /*
@@ -15,6 +16,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("flashget-UI.fxml"));
         primaryStage.setTitle("FlashGet-Bouncyyahomie");
+        Image icon = new Image(getClass().getResourceAsStream("/image/brainny.png"));
+        primaryStage.getIcons().add(icon);
         primaryStage.setScene(new Scene(root, 680, 285));
         primaryStage.show();
     }
