@@ -24,7 +24,6 @@ public class DownloadTask extends Task<Long> {
         this.start = start;
     }
 
-
     @Override
     public Long call() {
         long bytesRead = 0;
