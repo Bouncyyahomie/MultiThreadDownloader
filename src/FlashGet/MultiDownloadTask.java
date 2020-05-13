@@ -87,8 +87,8 @@ public class MultiDownloadTask extends Controller {
             alert.showAndWait();
         } else {
             if (getLength < 10e3) label.setText(String.format("%.2f Bytes / %.2f Bytes", updateText, getLength));
-            else if (getLength <= 10e3) label.setText(String.format("%.2f KB / %.2f KB", updateText/10e3, getLength/10e3));
-            else if (getLength <= 10e6)label.setText(String.format("%.2f MB / %.2f MB", updateText/10e6, getLength / 10e6));
+            else if (getLength >= 10e3 && getLength < 10e6) label.setText(String.format("%.2f KB / %.2f KB", updateText/10e3, getLength/10e3));
+            else if (getLength >= 10e6 && getLength <10e9)label.setText(String.format("%.2f MB / %.2f MB", updateText/10e6, getLength / 10e6));
             else label.setText(String.format("%.2f GB / %.2f GB", updateText/10e9, getLength / 10e9));
         }
     }
