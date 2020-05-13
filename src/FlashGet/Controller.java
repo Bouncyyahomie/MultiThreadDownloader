@@ -189,7 +189,7 @@ class DownloadHandler implements EventHandler<ActionEvent> {
             }
         } catch (IOException ioe) {
             Alert alertioe = new Alert(AlertType.WARNING);
-            alertioe.setHeaderText("Can not clear because not thing to clear");
+            alertioe.setHeaderText("Can not clear because nothing to clear");
             alertioe.setTitle("Error");
             alertioe.showAndWait();
         } catch (NullPointerException npe) {
