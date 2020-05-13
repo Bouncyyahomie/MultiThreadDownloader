@@ -10,6 +10,20 @@ This is Application that can download files from URL.This apllication will use m
 * **Clear Button**  - For click on this button to clear download
 
 ### Usage
+Verify that your Jar file is runnable by runnig ot your self.
+
+Then use this command:
+```
+java -jar FlashGet.jar
+```
+For Java 11 you nedd to specify the module path for JavaFx.
+
+Use this command:
+```
+java --module-path \lib\javafx-sdk-11.0.2\lib --add-modules javafx.controls,javafx.fxml,javafx.graphics -jar FlashGet.ja
+```
+
+
  **1**.Enter your URL in to text field
  ![Start](https://cdn.discordapp.com/attachments/632960013631225893/710034602340777994/unknown.png)
  
