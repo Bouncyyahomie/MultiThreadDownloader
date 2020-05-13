@@ -1,15 +1,15 @@
-#FlashGet Multi-thread Downloader
-###Description
+# FlashGet Multi-thread Downloader
+### Description
 This is Application that can download files from URL.This apllication will use multiple threads to download faster.
 
-###Features
+### Features
 ![Main](https://cdn.discordapp.com/attachments/689474874762461249/710033292857966653/unknown.png)
 
 * **URL TextField**  - For enter the URL
 * **Download Button**  - For click on this button to download
 * **Clear Button**  - For click on this button to clear download
 
-###Usage
+### Usage
  **1**.Enter your URL in to text field
  ![Start](https://cdn.discordapp.com/attachments/632960013631225893/710034602340777994/unknown.png)
  
@@ -22,7 +22,7 @@ This is Application that can download files from URL.This apllication will use m
  **4**.After finished program will alert you.
  ![Alert](https://cdn.discordapp.com/attachments/632960013631225893/710038107642265600/unknown.png)
  
- ###Other Features
+ ### Other Features
  
  **Clear Button**
  Clear Button for clear when you finished your lastest download and want new download.
@@ -32,5 +32,5 @@ This is Application that can download files from URL.This apllication will use m
  Cancel Button for cancel your donwload.
  ![Cancel](https://cdn.discordapp.com/attachments/632960013631225893/710038577333141564/unknown.png)
  
- ###UML Digram
+ ### UML Digram
  ![UML](https://cdn.discordapp.com/attachments/632960013631225893/710043720799617064/Package_FlashGet.png)
