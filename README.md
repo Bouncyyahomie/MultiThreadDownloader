@@ -20,7 +20,7 @@ For Java 11 you nedd to specify the module path for JavaFx.
 
 Use this command:
 ```
-java --module-path \lib\javafx-sdk-11.0.2\lib --add-modules javafx.controls,javafx.fxml,javafx.graphics -jar FlashGet.ja
+java --module-path \lib\javafx-sdk-11.0.2\lib --add-modules javafx.controls,javafx.fxml,javafx.graphics -jar FlashGet.jar
 ```
 
 
