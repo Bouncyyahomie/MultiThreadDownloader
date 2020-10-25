@@ -53,7 +53,7 @@ public class MultiDownloadTask extends Controller {
                 add(tasks[1].progressProperty().multiply(1.0 / 6.0)
                         .add(tasks[2].progressProperty().multiply(1.0 / 6.0)
                                 .add(tasks[3].progressProperty().multiply(1.0 / 6.0)
-                                        .add(tasks[4].progressProperty().multiply(0.2)    //)))));
+                                        .add(tasks[4].progressProperty().multiply(1.0 / 6.0)
                                                 .add(tasks[5].progressProperty().multiply(1.0 / 6.0)))))));
         executor.shutdown();
     }
@@ -87,9 +87,11 @@ public class MultiDownloadTask extends Controller {
             alert.showAndWait();
         } else {
             if (getLength < 10e3) label.setText(String.format("%.2f Bytes / %.2f Bytes", updateText, getLength));
-            else if (getLength >= 10e3 && getLength < 10e6) label.setText(String.format("%.2f KB / %.2f KB", updateText/10e3, getLength/10e3));
-            else if (getLength >= 10e6 && getLength <10e9)label.setText(String.format("%.2f MB / %.2f MB", updateText/10e6, getLength / 10e6));
-            else label.setText(String.format("%.2f GB / %.2f GB", updateText/10e9, getLength / 10e9));
+            else if (getLength >= 10e3 && getLength < 10e6)
+                label.setText(String.format("%.2f KB / %.2f KB", updateText / 10e3, getLength / 10e3));
+            else if (getLength >= 10e6 && getLength < 10e9)
+                label.setText(String.format("%.2f MB / %.2f MB", updateText / 10e6, getLength / 10e6));
+            else label.setText(String.format("%.2f GB / %.2f GB", updateText / 10e9, getLength / 10e9));
         }
     }
 
@@ -97,7 +99,7 @@ public class MultiDownloadTask extends Controller {
      * For cancel all tasks
      * */
     public void cancelTasks() {
-        Boolean clear = false;
+        boolean clear = false;
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setContentText("Confirm");
         alert.setTitle("Cancel");
