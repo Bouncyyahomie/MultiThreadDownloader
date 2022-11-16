@@ -16,7 +16,7 @@ Then use this command:
 ```
 java -jar FlashGet.jar
 ```
-For Java 11 you nedd to specify the module path for JavaFx.
+For Java 11 you need to specify the module path for JavaFx.
 
 Use this command:
 ```
